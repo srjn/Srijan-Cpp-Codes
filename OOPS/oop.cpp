@@ -1,8 +1,15 @@
 #include <iostream>
 using namespace std;
 
-class human{
+class living{
     public:
+    void print(){
+        cout<<"i am alive"<<endl;
+    }
+};
+
+class human : living{
+    private:
     int age;
     char gender;
 
@@ -27,10 +34,25 @@ class male : public human{
     }
 
     void print(){
-        cout<<"age is : "<<age<<endl;
-        cout<<"gender is : "<<gender<<endl;
+        human::print();
+        // cout<<"age is : "<<age<<endl;
+        // cout<<"gender is : "<<gender<<endl;
         cout<<"salary is : $"<<salary<<endl;
     }
+};
+
+class animal : public living{
+};
+//multilevel inheritence
+class dog : animal{
+public:
+void bark(){
+    cout<<"barking "<<endl;
+}
+};
+//multiple inheritance
+class monkey : public human, public animal{
+
 };
 
 int main(){
